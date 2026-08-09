@@ -1,102 +1,15 @@
 @import "tailwindcss";
 
-/* =========================================
-   ÁGORA — Design tokens (Tailwind v4 @theme)
-   ========================================= */
-@theme {
-  --font-display: "Italiana", serif;
-  --font-sans: "League Spartan", ui-sans-serif, system-ui, sans-serif;
-
-  /* Fondos */
-  --color-agora-bg: #FAF9F7;
-  --color-agora-surface: #FFFFFF;
-  --color-agora-card: #F1EFF8;
-  --color-agora-card-soft: #F7F5FB;
-  --color-agora-border: #DDD8EA;
-
-  /* Texto */
-  --color-agora-ink: #29263A;
-  --color-agora-muted: #77738A;
-  --color-agora-muted-soft: #AAA6B8;
-
-  /* PALETA PRINCIPAL DE ÁGORA */
-  --color-agora-lilac: #D9A8E3;
-  --color-agora-blue: #A9B8E5;
-  --color-agora-turquoise: #B1F0EA;
-  --color-agora-purple: #B8A3E2;
-  --color-agora-cream: #FFF8EA;
-
-  /* Variaciones */
-  --color-agora-lilac-dark: #A968B8;
-  --color-agora-blue-dark: #687FC5;
-  --color-agora-turquoise-dark: #55BDB5;
-  --color-agora-purple-dark: #7956C7;
-  --color-agora-cream-dark: #E8C878;
-
-  /* Sidebar */
-  --color-agora-sidebar: #FFFFFF;
-  --color-agora-active: #F1E8F7;
+html {
+  scroll-behavior: smooth;
 }
 
-html, body {
-  background-color: var(--color-agora-bg);
-  font-family: var(--font-sans);
-  color: var(--color-agora-ink);
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.font-display {
-  font-family: var(--font-display);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-agora-border);
-  border-radius: 999px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-agora-pink);
-  outline-offset: 2px;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* =========================================
-   Ajustes de escala para pantallas grandes
-   ========================================= */
-@media (min-width: 1024px) {
-  html {
-    font-size: 17px;
-  }
-}
-
-.animate-fade-in {
-  animation: agora-fade-in 0.18s ease-out;
-}
-
-@keyframes agora-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button {
+  font: inherit;
 }
