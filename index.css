@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Italiana", serif;
+  --font-sans: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  --color-agora-bg: #FAF9F7;
+  --color-agora-surface: #FFFFFF;
+  --color-agora-card: #EFEEEC;
+  --color-agora-card-soft: #F5F4F2;
+  --color-agora-border: #E4E2DF;
+  --color-agora-ink: #2B2A28;
+  --color-agora-muted: #8A8783;
+  --color-agora-muted-soft: #B4B1AC;
+  --color-agora-pink: #C97C93;
+  --color-agora-pink-light: #F3D9E1;
+  --color-agora-pink-dark: #A85A72;
+  --color-agora-rose: #D66A8D;
+  --color-agora-mustard: #F4B942;
+  --color-agora-yellow: #F7C873;
+  --color-agora-yellow-light: #FBE3BC;
+  --color-agora-green: #6FC79A;
+  --color-agora-green-light: #B7E6CC;
+  --color-agora-mint: #A8DFC0;
+  --color-agora-lilac: #C9A2D6;
+  --color-agora-plum: #7C4F6D;
+  --color-agora-sidebar: #FFFFFF;
+  --color-agora-active: #FBEAEF;
+}
+
+html, body { background-color: var(--color-agora-bg); font-family: var(--font-sans); color: var(--color-agora-ink); }
+* { box-sizing: border-box; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.font-display { font-family: var(--font-display); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background-color: var(--color-agora-border); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+:focus-visible { outline: 2px solid var(--color-agora-pink); outline-offset: 2px; }
+
+/* Tokens utilizados por el módulo "Aprende a votar" integrado. */
+@theme {
+  --color-agora-lilac: #D9A8E3;
+  --color-agora-blue: #A9B8E5;
+  --color-agora-turquoise: #B1F0EA;
+  --color-agora-purple: #B8A3E2;
+  --color-agora-cream: #FFF8EA;
+  --color-agora-lilac-dark: #A968B8;
+  --color-agora-blue-dark: #687FC5;
+  --color-agora-turquoise-dark: #55BDB5;
+  --color-agora-purple-dark: #7956C7;
+  --color-agora-cream-dark: #E8C878;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.animate-fade-in { animation: agora-fade-in 0.18s ease-out; }
+@keyframes agora-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
