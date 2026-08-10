@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  
   --font-display: "Italiana", serif;
   --font-sans: "League Spartan", ui-sans-serif, system-ui, sans-serif;
   --color-agora-bg: #FAF9F7;
