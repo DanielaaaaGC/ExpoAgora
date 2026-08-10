@@ -26,7 +26,7 @@
   --color-agora-sidebar: #FFFFFF;
   --color-agora-active: #FBEAEF;
 }
-
+.
 html, body { background-color: var(--color-agora-bg); font-family: var(--font-sans); color: var(--color-agora-ink); }
 * { box-sizing: border-box; }
 button, input, textarea, select { font: inherit; }
