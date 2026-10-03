@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+
+:root {
+  --agora-purple: #7b43e2;
+  --agora-purple-dark: #5d2db4;
+  --agora-lilac: #c6b3ed;
+  --agora-pink: #e3b3ed;
+  --agora-blue: #b3bded;
+  --agora-cyan: #bffff4;
+  --agora-white: #ffffff;
+  --agora-text: #39265c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 82px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  background: white;
+
+  font-family: 'League Spartan', sans-serif;
+
+  position: relative;
+  z-index: 100;
+
+  border-bottom: 1px solid rgba(123, 67, 226, 0.08);
+
+  box-shadow: 0 3px 15px rgba(57, 38, 92, 0.04);
+}
+
+/* =========================
+   MARCA
+========================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-logo {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.navbar-title {
+  color: var(--agora-text);
+
+  font-size: 30px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-title {
+  color: var(--agora-purple);
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 18px;
+
+  color: var(--agora-text);
+
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  border-radius: 14px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Hover morado */
+.navbar-link:hover {
+  background-color: var(--agora-purple);
+  color: white;
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   ENTRAR
+========================= */
+
+.navbar-enter {
+  background-color: rgba(123, 67, 226, 0.08);
+  color: var(--agora-purple);
+}
+
+.navbar-enter:hover {
+  background-color: var(--agora-purple);
+  color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+
+  .navbar {
+    height: 72px;
+    padding: 0 20px;
+  }
+
+  .navbar-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar-title {
+    font-size: 25px;
+  }
+
+  .navbar-actions {
+    gap: 3px;
+  }
+
+  .navbar-link {
+    padding: 9px 11px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .navbar-title {
+    display: none;
+  }
+
+  .navbar-link {
+    font-size: 14px;
+  }
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-link animated-icons {
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-enter {
+  display: flex;
+  align-items: center;
+}
+
