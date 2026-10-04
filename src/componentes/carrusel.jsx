@@ -40,7 +40,7 @@ const slides = [
 function Carrusel() {
   const [actual, setActual] = useState(0);
 
-  // Cambiar automáticamente cada 6 segundos
+  
   useEffect(() => {
     const intervalo = setInterval(() => {
       setActual((prev) => (prev + 1) % slides.length);
@@ -58,25 +58,25 @@ function Carrusel() {
   };
 
   return (
-    <section className="hero">
+    <section className="hero1">
 
       {/* IMAGEN */}
       <div
-        className="hero-background"
+        className="hero1-background"
         style={{
           backgroundImage: `url(${slides[actual].imagen})`
         }}
       ></div>
 
       {/* FILTRO */}
-      <div className="hero-overlay"></div>
+      <div className="hero1-overlay"></div>
 
       {/* CONTENIDO */}
-      <div className="hero-content">
+      <div className="hero1-content">
 
-        <div className="hero-text" key={actual}>
+        <div className="hero1-text" key={actual}>
 
-          <span className="hero-label">
+          <span className="hero1-label">
             {slides[actual].etiqueta}
           </span>
 
@@ -88,7 +88,7 @@ function Carrusel() {
             {slides[actual].texto}
           </p>
 
-          <button className="hero-button">
+          <button className="hero1-button">
             Conoce más
           </button>
 
@@ -98,7 +98,7 @@ function Carrusel() {
 
       {/* FLECHA IZQUIERDA */}
       <button
-        className="hero-arrow hero-arrow-left"
+        className="hero1-arrow hero1-arrow-left"
         onClick={anterior}
         aria-label="Imagen anterior"
       >
@@ -107,7 +107,7 @@ function Carrusel() {
 
       {/* FLECHA DERECHA */}
       <button
-        className="hero-arrow hero-arrow-right"
+        className="hero1-arrow hero1-arrow-right"
         onClick={siguiente}
         aria-label="Imagen siguiente"
       >
@@ -115,12 +115,12 @@ function Carrusel() {
       </button>
 
       {/* INDICADORES */}
-      <div className="hero-dots">
+      <div className="hero1-dots">
 
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`hero-dot ${
+            className={`hero1-dot ${
               actual === index ? "active" : ""
             }`}
             onClick={() => setActual(index)}

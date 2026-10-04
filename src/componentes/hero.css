@@ -1,0 +1,303 @@
+/* =====================================================
+   ESTILOS BASE (MÓVIL PRIMERO)
+   ===================================================== */
+
+/* HERO CONTENEDOR */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #dfd9f5;
+  width: 100%;
+  height: auto;
+}
+
+/* FONDOS DECORATIVOS (BLOBS) */
+.hero-bg-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(54px);
+}
+
+.blob-lila {
+  top: -7rem;
+  left: -7rem;
+  width: 35rem;
+  height: 35rem;
+  background-color: rgba(232, 170, 248, 0.582);
+}
+
+.blob-azul {
+  top: 2.5rem;
+  right: 0;
+  width: 420px;
+  height: 420px;
+  background-color: rgba(159, 180, 248, 0.541);
+}
+
+/* ESTRUCTURA Y LAYOUT */
+.hero-container {
+  position: relative;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 1.5rem; 
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* TEXTOS Y CONTENIDOS IZQUIERDA */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  color: #7055a6;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #ebeaf7;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #f1f3ff;
+}
+
+/* TÍTULO PRINCIPAL Y HIGHLIGHT */
+.hero .hero-title,
+.hero .hero-title-highlight {
+  font-family: sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.025em;
+  display: inline-block;
+}
+
+.hero .hero-title {
+  color: #403b68 !important; 
+}
+
+.hero .hero-title-highlight {
+  color: #7055a6 !important; 
+}
+
+.hero-desc {
+  margin-top: 1.25rem;
+  color: #4a2768 !important;
+  max-width: 28rem;
+  font-size: 15px;
+  line-height: 1.625;
+}
+
+/* BOTONES Y ACCIONES */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #a188d4;
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(112, 85, 166, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #604795;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #5b4b82;
+  border: 1px solid #d7d2e8;
+}
+
+.btn-secondary:hover {
+  background-color: #f1ebf7;
+}
+
+/* GRILLA DE CARACTERÍSTICAS */
+.features-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.feature-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ddd8ec;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.feature-title {
+  font-size: 0.875rem;
+  font-weight: bold !important;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #4a2768  !important;
+}
+
+.feature-text {
+  font-size: 0.75rem;
+  color: #7055a6 !important;
+  line-height: 1.25;
+  margin-top: 0.25rem;
+}
+
+/* COLUMNA DERECHA - AGORITA */
+.hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-blob {
+  width: 280px;
+  height: 280px;
+  border-radius: 48% 52% 60% 40% / 50% 45% 55% 50%;
+  background: linear-gradient(135deg, #d7a9e3, #aab8e5, #b4f0ea);
+  opacity: 0.8;
+}
+
+.hero-avatar {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 25px rgba(64, 59, 104, 0.15));
+  transition: transform 0.5s ease;
+}
+
+.hero-avatar:hover {
+  transform: translateY(-8px);
+}
+
+
+
+@media (min-width: 640px) {
+  .hero-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero .hero-title,
+  .hero .hero-title-highlight {
+    font-size: 3rem !important;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .avatar-blob {
+    width: 340px;
+    height: 340px;
+  }
+
+  .hero-avatar {
+    max-width: 340px;
+  }
+}
+
+/* PANTALLAS MEDIANAS (MD: >= 768px) */
+@media (min-width: 768px) {
+  .hero-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-right,
+  .avatar-bg-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+/* PANTALLAS GRANDES (LG: >= 1024px) */
+@media (min-width: 1024px) {
+  .hero-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    gap: 4rem;
+  }
+
+  .hero .hero-title,
+  .hero .hero-title-highlight {
+    font-size: 3.75rem !important;
+  }
+
+  .hero-desc {
+    max-width: 32rem;
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .avatar-blob {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-avatar {
+    max-width: 380px;
+  }
+}
+
+/* PANTALLAS EXTRA GRANDES (XL: >= 1280px) */
+@media (min-width: 1280px) {
+  .hero .hero-title,
+  .hero .hero-title-highlight {
+    font-size: 4rem !important;
+  }
+}

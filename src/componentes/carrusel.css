@@ -2,10 +2,10 @@
 
 
 /* =========================================
-   HERO 
+   HERO1 
 ========================================= */
 
-.hero {
+.hero1 {
   width: 100%;
   height: calc(100vh - 82px);
 
@@ -23,7 +23,7 @@
    IMAGEN DE FONDO
 ========================================= */
 
-.hero-background {
+.hero1-background {
   position: absolute;
 
   inset: 0;
@@ -40,7 +40,7 @@
    FILTRO MORADO
 ========================================= */
 
-.hero-overlay {
+.hero1-overlay {
   position: absolute;
 
   inset: 0;
@@ -65,7 +65,7 @@
    CONTENIDO
 ========================================= */
 
-.hero-content {
+.hero1-content {
   position: relative;
 
   z-index: 2;
@@ -80,7 +80,7 @@
 }
 
 
-.hero-text {
+.hero1-text {
   max-width: 600px;
 
   animation: aparecerTexto 0.7s ease;
@@ -91,7 +91,7 @@
    ETIQUETA
 ========================================= */
 
-.hero-label {
+.hero1-label {
   display: block;
 
   margin-bottom: 12px;
@@ -100,7 +100,7 @@
 
   font-family: "League Spartan", sans-serif;
 
-  font-size: 19px;
+  font-size: 35px;
   font-weight: 500;
 
   letter-spacing: 0.5px;
@@ -111,14 +111,14 @@
    TITULO
 ========================================= */
 
-.hero h1 {
+.hero1 h1 {
   margin: 0 0 22px;
 
   color: white;
 
   font-family: "League Spartan", sans-serif;
 
-  font-size: clamp(45px, 5vw, 70px);
+  font-size: clamp(55px, 10vw, 90px);
 
   font-weight: 700;
 
@@ -132,7 +132,7 @@
    PARRAFO
 ========================================= */
 
-.hero p {
+.hero1 p {
   margin: 0;
 
   max-width: 570px;
@@ -141,7 +141,7 @@
 
   font-family: "Raleway", sans-serif;
 
-  font-size: 18px;
+  font-size: 25px;
 
   font-weight: 400;
 
@@ -153,7 +153,7 @@
    BOTON
 ========================================= */
 
-.hero-button {
+.hero1-button {
   margin-top: 30px;
 
   padding: 13px 30px;
@@ -178,7 +178,7 @@
 }
 
 
-.hero-button:hover {
+.hero1-button:hover {
   background: #cbb4f3;
 
   color: #3d2268;
@@ -193,7 +193,7 @@
    FLECHAS
 ========================================= */
 
-.hero-arrow {
+.hero1-arrow {
   position: absolute;
 
   z-index: 5;
@@ -231,7 +231,7 @@
 }
 
 
-.hero-arrow:hover {
+.hero1-arrow:hover {
   background: white;
 
   transform: translateY(-50%) scale(1.08);
@@ -240,12 +240,12 @@
 }
 
 
-.hero-arrow-left {
+.hero1-arrow-left {
   left: 28px;
 }
 
 
-.hero-arrow-right {
+.hero1-arrow-right {
   right: 28px;
 }
 
@@ -254,7 +254,7 @@
    PUNTOS
 ========================================= */
 
-.hero-dots {
+.hero1-dots {
   position: absolute;
 
   z-index: 5;
@@ -273,7 +273,7 @@
 }
 
 
-.hero-dot {
+.hero1-dot {
   width: 11px;
   height: 11px;
 
@@ -291,12 +291,12 @@
 }
 
 
-.hero-dot:hover {
+.hero1-dot:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
 
-.hero-dot.active {
+.hero1-dot.active {
   width: 13px;
   height: 13px;
 
@@ -346,16 +346,16 @@
 
 @media (max-width: 900px) {
 
-  .hero {
+  .hero1 {
     height: 600px;
   }
 
-  .hero-content {
+  .hero1-content {
     padding-left: 8%;
     padding-right: 25%;
   }
 
-  .hero h1 {
+  .hero1 h1 {
     font-size: 52px;
   }
 
@@ -368,48 +368,48 @@
 
 @media (max-width: 600px) {
 
-  .hero {
+  .hero1 {
     height: 650px;
   }
 
-  .hero-content {
+  .hero1-content {
     padding: 0 30px;
     align-items: center;
   }
 
-  .hero-text {
+  .hero1-text {
     max-width: 100%;
   }
 
-  .hero-label {
+  .hero1-label {
     font-size: 16px;
   }
 
-  .hero h1 {
+  .hero1 h1 {
     font-size: 43px;
   }
 
-  .hero p {
+  .hero1 p {
     font-size: 16px;
     line-height: 1.6;
   }
 
-  .hero-arrow {
+  .hero1-arrow {
     width: 42px;
     height: 42px;
 
     font-size: 32px;
   }
 
-  .hero-arrow-left {
+  .hero1-arrow-left {
     left: 12px;
   }
 
-  .hero-arrow-right {
+  .hero1-arrow-right {
     right: 12px;
   }
 
-  .hero-dots {
+  .hero1-dots {
     bottom: 20px;
   }
 

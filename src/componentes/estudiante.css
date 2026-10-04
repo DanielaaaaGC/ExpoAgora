@@ -3,7 +3,9 @@
 * {
   font-family: "League Spartan", sans-serif;
 }
-
+body{
+  background-color: #f1f3ff;
+}
 .navbar-estudiante {
   width: 100%;
   height: 80px;
@@ -193,5 +195,68 @@
 
   .navbar-profile .profile-info {
     display: none;
+  }
+}
+
+.seccion-tres-columnas {
+  display: flex;
+  margin-top: 80px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 50px auto 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+.columna-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+  padding: 24px 20px;
+  background-color: #faf8fc;
+  border-radius: 20px;
+  border: 1px solid #f0ecf9;
+  box-shadow: 0 6px 18px rgba(74, 56, 109, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.columna-item animated-icons {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.columna-item:hover {
+  transform: translateY(-4px);
+}
+
+.columna-item h2 {
+  color: #4a2768;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: "League Spartan", sans-serif;
+}
+
+.columna-item p {
+  color: #584975;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+  font-family: "League Spartan", sans-serif;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .seccion-tres-columnas {
+    flex-direction: column;
+    gap: 20px;
   }
 }

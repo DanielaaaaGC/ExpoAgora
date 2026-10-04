@@ -5,7 +5,7 @@ import logoA from "../assets/logoA.png";
 
 import Hero from "./hero"; 
 import Partidos from "./partidos"; 
-import Votacion from "./votacion"; 
+
 
 
 
@@ -21,7 +21,7 @@ function TresColumnas() {
 
   return (
     <section className="seccion-tres-columnas">
-      {/* Columna 1: Poder Estudiantil (Ahora con el ícono "Review") */}
+      {/* Columna 1: Guiar el Poder Estudiantil */}
       <div className="columna-item">
         <animated-icons
           ref={setColIconAttrs}
@@ -30,14 +30,14 @@ function TresColumnas() {
           height="70"
           width="70"
         ></animated-icons>
-        <h2>Poder Estudiantil</h2>
-        <p> 
-          Al organizarnos y expresar ideas, la comunidad estudiantil asume un rol activo 
-          en la construcción de nuestro entorno, permitiendo asi que tengamos poder de decidir sobre los temas que nos afectan
+        <h2>Guiar el Poder Estudiantil</h2>
+        <p>
+          Como docentes, acompañamos al estudiantado a encauzar sus ideas y liderazgo, 
+          brindándoles las herramientas necesarias para que tomen decisiones informadas y con impacto positivo.
         </p>
       </div>
 
-      {/* Columna 2: Tu Voto Importa (Ahora con el ícono "Firecracker") */}
+      {/* Columna 2: Fomentar el Valor del Voto */}
       <div className="columna-item">
         <animated-icons
           ref={setColIconAttrs}
@@ -46,15 +46,14 @@ function TresColumnas() {
           height="70"
           width="70"
         ></animated-icons>
-        <h2>Tu Voto Importa</h2>
+        <h2>Fomentar el Valor del Voto</h2>
         <p>
-          Cada voto representa tu postura frente al futuro de la institución. Es la herramienta 
-          clave para respaldar las propuestas que mejor se alinean con las necesidades 
-          de la comunidad estudiantil.
+          Enseñamos la importancia del sufragio consciente y analítico, ayudando a los estudiantes 
+          a evaluar propuestas críticamente y comprender la responsabilidad de su elección.
         </p>
       </div>
 
-      {/* Columna 3: Importancia de la Participación (Ícono "Dynamic Role") */}
+      {/* Columna 3: Formación en Democracia */}
       <div className="columna-item">
         <animated-icons
           ref={setColIconAttrs}
@@ -63,11 +62,10 @@ function TresColumnas() {
           height="70"
           width="70"
         ></animated-icons>
-        <h2>Importancia de la Participación</h2>
+        <h2>Formación en Democracia</h2>
         <p>
-          Involucrarse en los procesos democráticos fortalece la convivencia, la transparencia 
-          y el pensamiento crítico. La participación activa fomenta una ciudadanía responsable 
-          desde la etapa escolar.
+          Promovemos un espacio de aprendizaje cívico donde el diálogo, el respeto y la transparencia 
+          sienten las bases para formar ciudadanos participativos y comprometidos desde las aulas.
         </p>
       </div>
     </section>
@@ -75,7 +73,7 @@ function TresColumnas() {
 }
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+ const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -118,7 +116,8 @@ function Navbar() {
       </button>
 
       <div className={`navbar-links ${isOpen ? "active" : ""}`}>
-        <Link to="/indexestudiante" className="nav-item" onClick={closeMenu}>
+        {/* Inicio */}
+        <Link to="/indexprofesor" className="nav-item" onClick={closeMenu}>
           <animated-icons
             ref={setIconAttrs}
             src="https://animatedicons.co/get-icon?name=Thank%20you&style=minimalistic&token=eb0b9e1a-e71e-4b20-a7dc-7c38f678e237"
@@ -129,6 +128,19 @@ function Navbar() {
           <span>Inicio</span>
         </Link>
 
+        {/* NUEVO APARTADO: Estudiantes */}
+        <Link to="/estudiantes" className="nav-item" onClick={closeMenu}>
+          <animated-icons
+            ref={setIconAttrs}
+            src="https://animatedicons.co/get-icon?name=Hire&style=minimalistic&token=ca71a3a4-a898-457d-b398-fae965c6ceb9"
+            trigger="loop-on-hover"
+            height="45"
+            width="45"
+          ></animated-icons>
+          <span>Estudiantes</span>
+        </Link>
+
+        {/* Módulos */}
         <Link to="/modulos" className="nav-item" onClick={closeMenu}>
           <animated-icons
             ref={setIconAttrs}
@@ -140,6 +152,7 @@ function Navbar() {
           <span>Módulos</span>
         </Link>
 
+        {/* Calendario */}
         <Link to="/calendario" className="nav-item" onClick={closeMenu}>
           <animated-icons
             ref={setIconAttrs}
@@ -151,6 +164,7 @@ function Navbar() {
           <span>Calendario</span>
         </Link>
 
+        {/* Comunidad */}
         <Link to="/comunidad" className="nav-item" onClick={closeMenu}>
           <animated-icons
             ref={setIconAttrs}
@@ -160,17 +174,6 @@ function Navbar() {
             width="45"
           ></animated-icons>
           <span>Comunidad</span>
-        </Link>
-
-        <Link to="/notas" className="nav-item" onClick={closeMenu}>
-          <animated-icons
-            ref={setIconAttrs}
-            src="https://animatedicons.co/get-icon?name=Report%20V2&style=minimalistic&token=1869947d-0b96-4314-9dd7-a86ec7a829ff"
-            trigger="loop-on-hover"
-            height="45"
-            width="45"
-          ></animated-icons>
-          <span>Notas</span>
         </Link>
       </div>
     </nav>
@@ -185,11 +188,9 @@ export default function IndexEstudiante() {
         <Hero />
       </main>
       
-      {/* Sección con los 3 títulos alineados en línea */}
       <TresColumnas />
 
       <Partidos />
-      <Votacion />
     </div>
   );
 }

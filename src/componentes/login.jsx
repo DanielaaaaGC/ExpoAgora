@@ -98,7 +98,7 @@ function Login() {
                 if (rol === "estudiante") {
                     navigate("/indexestudiante");
                 } else if (rol === "profesor") {
-                    navigate("/profesor");
+                    navigate("/indexprofesor"); // Redirección actualizada
                 } else {
                     navigate("/");
                 }
@@ -164,7 +164,7 @@ function Login() {
             if (data.usuario.rol === "estudiante") {
                 navigate("/indexestudiante");
             } else if (data.usuario.rol === "profesor") {
-                navigate("/profesor");
+                navigate("/indexprofesor"); // Redirección actualizada
             } else {
                 navigate("/");
             }
