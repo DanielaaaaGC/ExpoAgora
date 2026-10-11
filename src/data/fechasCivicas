@@ -1,0 +1,54 @@
+export function fechasCivicasDelAnio(anio) {
+  return [
+    {
+      id: `civ-1-${anio}`,
+      titulo: "Batalla de Rivas (Día de Juan Santamaría)",
+      descripcion: "Conmemoración de la Batalla de Rivas y la gesta heroica de Juan Santamaría.",
+      inicio: new Date(anio, 3, 11), // 11 de Abril
+      fin: new Date(anio, 3, 11),
+      origen: "civico",
+      todoElDia: true,
+      categoria: "civico",
+    },
+    {
+      id: `civ-2-${anio}`,
+      titulo: "Anexión del Partido de Nicoya",
+      descripcion: "Celebración del aniversario de la incorporación del Partido de Nicoya a Costa Rica.",
+      inicio: new Date(anio, 6, 25), // 25 de Julio
+      fin: new Date(anio, 6, 25),
+      origen: "civico",
+      todoElDia: true,
+      categoria: "civico",
+    },
+    {
+      id: `civ-3-${anio}`,
+      titulo: "Día de la Independencia",
+      descripcion: "Celebración nacional de la Independencia de Costa Rica.",
+      inicio: new Date(anio, 8, 15), // 15 de Septiembre
+      fin: new Date(anio, 8, 15),
+      origen: "civico",
+      todoElDia: true,
+      categoria: "civico",
+    },
+    {
+      id: `civ-4-${anio}`,
+      titulo: "Día de la Democracia Costarricense",
+      descripcion: "Conmemoración de los valores e instituciones democráticas del país.",
+      inicio: new Date(anio, 10, 7), // 7 de Noviembre
+      fin: new Date(anio, 10, 7),
+      origen: "civico",
+      todoElDia: true,
+      categoria: "civico",
+    },
+    {
+      id: `civ-5-${anio}`,
+      titulo: "Día de la Abolición del Ejército",
+      descripcion: "Hito de la historia democrática y pacifista de Costa Rica.",
+      inicio: new Date(anio, 11, 1), // 1 de Diciembre
+      fin: new Date(anio, 11, 1),
+      origen: "civico",
+      todoElDia: true,
+      categoria: "civico",
+    },
+  ];
+}

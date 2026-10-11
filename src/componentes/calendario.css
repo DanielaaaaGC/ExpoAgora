@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================================================
+   VARIABLES Y PALETA DE COLORES
+   ========================================================= */
+.cal {
+  --tinta: #4a386d;
+  --suave: #7b6c99;
+  --borde: #e3d9f2;
+  --lila: #eee7f5;
+  --acento: #8d7be8;
+  --azulito:#c1e5ff;
+  --acento-osc: #6a55d0;
+  
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px 24px 56px;
+  color: var(--tinta);
+  font-family: "League Spartan", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Envoltorio principal con tarjeta blanca */
+.pagina-calendario-estudiante {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f6fc;
+  box-sizing: border-box;
+  padding-bottom: 40px;
+}
+
+/* Tarjeta principal con franja superior #9571dd y soporte para anillas */
+.calendario-vista-card {
+  position: relative;
+  max-width: 1320px;
+  margin: 30px auto 20px;
+  padding: 35px 30px 30px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(74, 56, 109, 0.08);
+  border: 1.5px solid var(--borde);
+  border-top: 12px solid #9571dd; /* Franja púrpura pastel */
+  box-sizing: border-box;
+}
+
+/* Anillas / Resortes metálicos superiores */
+.cal-anillas {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 40px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cal-anilla {
+  width: 12px;
+  height: 26px;
+  background: linear-gradient(135deg, #ffffff 0%, #dcd6eb 40%, #8d7be8 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(74, 56, 109, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Encabezado Superior Spartan */
+.calendario-encabezado-superior {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.calendario-encabezado-superior h1{
+  color: #d69be2;;
+  text-align: left;
+}
+.titulo-calendario-spartan {
+  font-family: "League Spartan", sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--tinta);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo-calendario {
+  font-family: "League Spartan", sans-serif;
+  color: var(--suave);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Focus de accesibilidad */
+.cal button { cursor: pointer; font: inherit; color: inherit; }
+.cal button:focus-visible,
+.cal input:focus-visible,
+.cal textarea:focus-visible { 
+  outline: 3px solid var(--acento); 
+  outline-offset: 2px; 
+}
+
+/* ---------- aviso sin conexión ---------- */
+.cal-aviso {
+  display: flex; gap: 16px; align-items: center; justify-content: space-between;
+  background: #fff3df; border: 1px solid #f0cf94; color: #7a4d00;
+  border-radius: 14px; padding: 12px 16px; margin-bottom: 20px; font-size: 15px;
+}
+.cal-aviso button { 
+  background: #7a4d00; color: #fff; border: 0; border-radius: 999px; 
+  padding: 6px 16px; font-weight: 600; flex-shrink: 0; 
+}
+
+/* Layout de 2 columnas */
+.cal-layout { 
+  display: grid; 
+  grid-template-columns: minmax(0, 1fr) 380px; 
+  gap: 28px; 
+  align-items: start; 
+}
+
+/* ---------- cabecera del mes ---------- */
+.cal-cabecera { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.cal-titulo { margin: 0; font-size: 38px; line-height: 1; font-weight: 800; letter-spacing: -0.5px; color: var(--tinta); }
+.cal-titulo span { font-weight: 300; color: var(--acento); }
+
+.cal-nav { display: flex; gap: 8px; align-items: center; }
+.cal-btn-hoy {
+  background: #fff; border: 1.5px solid var(--borde); border-radius: 999px;
+  padding: 8px 20px; font-weight: 600; font-size: 15px; transition: background .15s, border-color .15s;
+}
+.cal-btn-hoy:hover { background: var(--lila); border-color: var(--acento); }
+
+.cal-btn-icono {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--borde);
+  background: #fff; font-size: 24px; line-height: 1; display: grid; place-items: center; padding: 0 0 3px;
+  transition: background .15s, border-color .15s;
+}
+.cal-btn-icono:hover { background: var(--lila); border-color: var(--acento); }
+
+/* ---------- grilla y perspectiva 3D ---------- */
+.cal-hoja-contenedor {
+  perspective: 1000px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.cal-semana { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding: 0 2px 8px; margin-top: 15px; }
+.cal-semana span { text-align: center; font-weight: 700; font-size: 15px; color: var(--suave); }
+
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; transition: opacity .2s; }
+.cal-grid--cargando { opacity: .55; }
+
+.cal-celda {
+  position: relative;
+  min-height: 112px;
+  padding: 8px 8px 6px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; overflow: hidden;
+  background: #fff;
+  border: 1.5px solid var(--borde);
+  border-radius: 5px;
+  transition: border-color .15s, background .15s, box-shadow .15s;
+}
+.cal-celda:hover { background: #e0d0f0; }
+.cal-celda--fuera { background: transparent; border-style: dashed; }
+.cal-celda--fuera .cal-num { color: #b9aed1; }
+.cal-celda--sel { background: var(--lila); box-shadow: 0 0 0 1.5px var(--acento-osc); }
+
+.cal-num { font-size: 17px; font-weight: 700; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; color: var(--tinta); }
+.cal-celda--hoy .cal-num { background: var(--acento); color: #fff; }
+
+.cal-chips { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.cal-chip {
+  display: block; font-size: 12.5px; font-weight: 600; line-height: 1.25; padding: 3px 6px;
+ border-radius: 4px;
+  background: color-mix(in srgb, var(--c, var(--acento)) 15%, white);
+  color: var(--tinta);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cal-chip--cont { border-left-color: transparent; }
+.cal-mas { font-size: 12px; color: var(--suave); font-weight: 600; }
+.cal-puntos { display: none; gap: 3px; }
+.cal-puntos i { width: 6px; height: 6px; border-radius: 50%; background: var(--c, var(--acento)); }
+
+/* ---------- panel lateral ---------- */
+.cal-lateral {
+  position: sticky; top: 16px; background: #fff; border: 1.5px solid var(--borde);
+  border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 18px;
+  box-shadow: 0 4px 16px rgba(74, 56, 109, 0.03);
+}
+.cal-dia { display: flex; align-items: center; gap: 16px; }
+.cal-dia-num { margin: 0; font-size: 84px; line-height: .85; font-weight: 800; color: var(--acento); letter-spacing: -3px; }
+.cal-dia-texto { margin: 0; font-size: 26px; font-weight: 700; text-transform: capitalize; line-height: 1.1; color: var(--tinta); }
+.cal-dia-texto span { display: block; font-size: 17px; font-weight: 400; color: var(--suave); margin-top: 4px; }
+
+.cal-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; max-height: 320px; overflow-y: auto; }
+.cal-vacio { color: var(--suave); font-size: 16px; }
+.cal-evento { background: var(--lila); border-radius: 12px; padding: 12px 14px; }
+.cal-evento-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.cal-evento-titulo { margin: 0; font-weight: 700; font-size: 18px; line-height: 1.2; color: var(--tinta); }
+.cal-evento-meta { margin: 4px 0 0; font-size: 14px; color: var(--suave); font-weight: 500; }
+.cal-evento-desc { margin: 8px 0 0; font-size: 15px; line-height: 1.4; color: var(--tinta); }
+
+/* Columna derecha contenedora */
+.cal-columna-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 16px;
+}
+
+/* Panel lateral adaptado dentro de la columna */
+.cal-lateral {
+  position: relative;
+  top: 0;
+  background: #fff;
+
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 4px 16px rgba(74, 56, 109, 0.03);
+}
+
+/* Ágorita debajo del panel */
+.cal-agorita-contenedor {
+  display: flex;
+  margin-top: 90px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.cal-agorita-img {
+  width: 350px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(74, 56, 109, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.cal-agorita-img:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+/* =========================================================
+   LO NUEVO PARA PROFESORES Y ÁGORITA (SÓLO LO AGREGADO)
+   ========================================================= */
+
+/* Columna derecha contenedora */
+.cal-columna-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 16px;
+}
+
+/* Botones de acción dentro de los eventos (Editar / Eliminar) */
+.cal-acciones {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cal-acciones button {
+  background: #7b85e2;
+  border: 1.5px solid var(--borde);
+  color: var(--tinta);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cal-acciones button:hover {
+  background: var(--acento);
+  color: #ffffff;
+  border-color: var(--acento);
+}
+
+/* =========================================================
+   FORMULARIO Y BOTONES DE ACCIÓN PARA PROFESORES
+   ========================================================= */
+
+/* Botones de acción dentro de los eventos (Editar / Eliminar) */
+.cal-acciones {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+
+.cal-form { 
+  display: flex; 
+  flex-direction: column;  
+ 
+}
+
+
+
+.cal-form label { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+  font-size: 14px;
+  color: #030303;  
+  font-weight: 700; 
+  color: var(--suave); 
+}
+
+.cal-form input, 
+.cal-form textarea {
+  font-size: 15px; 
+  color: #030303; 
+  border: 1.5px solid var(--borde); 
+  border-radius: 10px;
+  padding: 9px 12px; 
+  background: #fff; 
+  resize: vertical; 
+  width: 100%; 
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.cal-form input:focus, 
+.cal-form textarea:focus {
+  outline: none;
+  color: #030303; 
+}
+
+
+
+.cal-form-botones { 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 6px;
+}
+
+.cal-form-botones > * { 
+  flex: 1; 
+}
+
+.cal-error { 
+  margin: 0; 
+  color: #b3263e; 
+  font-size: 14px; 
+  font-weight: 700; 
+}
+
+.cal-primario { 
+  background: var(--acento-osc, #6a55d0); 
+  color: #ffffff !important; 
+  border: none; 
+  border-radius: 999px; 
+  padding: 12px 20px; 
+  font-weight: 700; 
+  font-size: 16px; 
+  cursor: pointer;
+}
+
+.cal-primario:hover:not(:disabled) { 
+  background: #5845b8; 
+
+}
+
+.cal-primario:disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed; 
+}
+
+/* Botón secundario (Cancelar) */
+.cal-secundario { 
+  background: #ffffff; 
+  border: 1.5px solid var(--borde, #e3d9f2); 
+  border-radius: 999px; 
+  padding: 11px 20px; 
+  font-weight: 600; 
+  font-size: 16px; 
+  color: var(--tinta, #4a386d);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+
+
+/* Botón "Hoy" de navegación */
+.cal-btn-hoy {
+  background: #ffffff; 
+  border: 1.5px solid var(--borde, #e3d9f2); 
+  border-radius: 999px;
+  padding: 8px 20px; 
+  font-weight: 600; 
+  font-size: 15px; 
+  color: var(--tinta, #4a386d);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cal-btn-hoy:hover { 
+  background: var(--lila, #eee7f5); 
+  border-color: var(--acento, #8d7be8); 
+}
+
+/* Botones de flechas (‹ / ›) */
+.cal-btn-icono {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  border: 1.5px solid var(--borde, #e3d9f2);
+  background: #ffffff; 
+  font-size: 24px; 
+  line-height: 1; 
+  display: grid; 
+  place-items: center; 
+  padding: 0 0 3px;
+  color: var(--tinta, #4a386d);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cal-btn-icono:hover { 
+  background: var(--lila, #eee7f5); 
+  border-color: var(--acento, #8d7be8); 
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1050px) {
+  .cal-layout { 
+    grid-template-columns: 1fr; 
+  }
+  .cal-columna-derecha,
+  .cal-lateral { 
+    position: static; 
+  }
+  .cal-agorita-contenedor {
+    margin-top: 30px;
+  }
+  .cal-agorita-img {
+    width: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cal { 
+    padding: 18px 12px 40px; 
+  }
+  .calendario-vista-card {
+    padding: 25px 15px 20px;
+    margin: 15px auto;
+  }
+  .titulo-calendario-spartan { 
+    font-size: 32px; 
+  }
+  .cal-titulo { 
+    font-size: 28px; 
+  }
+  .cal-grid, 
+  .cal-semana { 
+    gap: 3px; 
+  }
+  .cal-celda { 
+    min-height: 60px; 
+    padding: 5px 3px; 
+    align-items: center; 
+    border-radius: 6px; 
+  }
+  .cal-chips { 
+    display: none; 
+  }
+  .cal-puntos { 
+    display: flex; 
+  }
+  .cal-num { 
+    font-size: 14px; 
+    width: 24px;
+    height: 24px;
+  }
+  .cal-dia-num { 
+    font-size: 64px; 
+  }
+  .cal-dia-texto { 
+    font-size: 20px; 
+  }
+  .cal-form-fila { 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+  .cal-agorita-img {
+    width: 180px;
+  }
+}

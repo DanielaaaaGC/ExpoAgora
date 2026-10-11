@@ -1,0 +1,418 @@
+/* ==========================================================================
+   1. MAIN LAYOUT & CONTAINER
+   ========================================================================== */
+
+.ag-modules {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 55px 34px 100px;
+  color: #31294e;
+  font-family: "League Spartan", sans-serif;
+  min-height: calc(100vh - 85px);
+}
+
+
+/* ==========================================================================
+   2. HEADER & TYPOGRAPHY
+   ========================================================================== */
+
+.ag-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.ag-eyebrow {
+  color: #e3b3ed;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ag-heading h1 {
+  font-size: clamp(32px, 4vw, 63px);
+  line-height: 1.1;
+  color: #4a386d;
+  letter-spacing: -1.8px;
+  margin: 13px 0;
+}
+
+.ag-heading h1 span {
+  color: #a286e9;
+}
+
+.ag-heading p {
+  color: #0b02259d;
+  font-size: 28px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ag-heading-icon {
+  font-size: 90px;
+  color: #ddd0fa;
+}
+
+
+/* ==========================================================================
+   3. SEARCH & FILTERS
+   ========================================================================== */
+
+.ag-tools {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 23px;
+}
+
+.ag-search {
+  min-height: 57px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  border-radius: 10px;
+  background: #fdfcff;
+  padding: 0 22px;
+  box-shadow: 40px 8px 28px #6d4ab010;
+}
+
+.ag-search span {
+  font-size: 31px;
+  color: #9677d8;
+}
+
+.ag-search input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font: inherit;
+  font-size: 17px;
+  color: #9d7be0;
+}
+
+.ag-search:focus-within {
+  outline: 3px solid #d7c8f7;
+}
+
+.ag-filter {
+  padding: 0 19px;
+  background: #fff;
+  border: 1px solid #e2d9f7;
+  border-radius: 10px;
+  color: #6245aa;
+  font: inherit;
+  font-size: 16px;
+}
+
+.ag-results {
+  color: #695a87;
+  font-size: 15px;
+  margin: 0 0 21px;
+  font-weight: 600;
+}
+
+.ag-results span {
+  color: #9c93af;
+  font-weight: 400;
+}
+
+
+/* ==========================================================================
+   4. GRID & CARDS (3D FLIP SYSTEM)
+   ========================================================================== */
+
+.ag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.ag-card {
+  height: 350px;
+  perspective: 1100px;
+}
+
+.ag-card-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .75s cubic-bezier(.2, .7, .2, 1);
+}
+
+.ag-card.is-flipped .ag-card-inner {
+  transform: rotateY(180deg);
+}
+
+.ag-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 12px 35px #37225e21;
+}
+
+/* --- Card Front --- */
+.ag-front {
+  width: 100%;
+  border: 0;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  color: #c6b3ed;
+  background: #6e4aa4;
+  transition: box-shadow .2s;
+}
+
+.ag-front:hover {
+  box-shadow: 0 18px 35px #5930964d;
+}
+
+.ag-front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
+  transition: transform .3s;
+}
+
+.ag-front:hover img {
+  transform: scale(1.05);
+}
+
+.ag-image-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #b294df45 4%, #59288f10 40%, #66468adf 100%);
+}
+
+.ag-module-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 1px solid #e3b3ed;
+  background: #f2e2f336;
+  border-radius: 40px;
+  padding: 9px 14px;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.ag-front-text {
+  position: absolute;
+  bottom: 23px;
+  left: 24px;
+  right: 23px;
+}
+
+.ag-front-text h2 {
+  font-size: 31px;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.ag-front-text p {
+  font-size: 15px;
+  margin: 0;
+  color: #efe6ff;
+}
+
+.ag-front-text p span {
+  float: right;
+  font-size: 23px;
+}
+
+/* --- Card Rear --- */
+.ag-rear {
+  transform: rotateY(180deg);
+  padding: 32px 29px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #fcfbff, #e8dcff);
+
+}
+
+.ag-rear-kicker {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #dc91eb;
+  font-weight: 800;
+}
+
+.ag-rear h2 {
+  font-size: 29px;
+  margin-top: 20px;
+  margin: 22px 0 12px;
+  color: #4a386d;
+  margin-bottom: 20px;
+}
+
+.ag-rear p {
+  color: #46326ec7;
+  font-size: 17px;
+  line-height: 1.42;
+  margin: 0;
+}
+
+.ag-card-actions {
+  margin-top: auto;
+  width: 100%;
+  display: grid;
+  gap: 12px;
+}
+
+.ag-enter {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 20px;
+  background: #9571dd;
+  color: white;
+  font-weight: 700;
+  padding: 14px 12px;
+}
+
+.ag-enter:hover {
+  background: #6641b0;
+}
+
+.ag-turnback {
+  border: none;
+  background: none;
+  margin-top: 10px;
+  color: #7651b8;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   5. DETAIL VIEW & STATES
+   ========================================================================== */
+
+.ag-noresults {
+  padding: 75px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  color: #756a88;
+}
+
+.ag-back {
+  display: inline-block;
+  text-decoration: none;
+  color: #9571dd;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.ag-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 45px #35205218;
+}
+
+.ag-detail-card > img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}
+
+.ag-detail-card > div {
+  padding: 46px;
+  align-self: center;
+}
+
+.ag-detail-card h1 {
+  font-size: 45px;
+  color: #52368c;
+}
+
+.ag-detail-card p {
+  font-size: 19px;
+  line-height: 1.5;
+  color: #6c6279;
+}
+
+.ag-empty-detail {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f0e9fd;
+}
+
+
+/* ==========================================================================
+   6. MEDIA QUERIES & ACCESSIBILITY
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .ag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ag-detail-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .ag-modules {
+    padding: 34px 18px 65px;
+  }
+
+  .ag-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ag-card {
+    height: 350px;
+  }
+
+  .ag-heading-icon {
+    display: none;
+  }
+
+  .ag-heading h1 {
+    font-size: 37px;
+  }
+
+  .ag-results span {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .ag-detail-card > img {
+    height: 235px;
+  }
+
+  .ag-detail-card > div {
+    padding: 25px;
+  }
+
+  .ag-detail-card h1 {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-card-inner,
+  .ag-front img {
+    transition: none;
+  }
+}
