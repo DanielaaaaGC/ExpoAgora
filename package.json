@@ -1,29 +1,22 @@
 {
-  "name": "agora",
-  "private": true,
+  "name": "agoraya",
   "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "webpack serve --mode development --open",
-    "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "type": "commonjs",
   "dependencies": {
-    "framer-motion": "^12.23.0",
-    "lucide-react": "^0.468.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.8.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.26.0",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.6.3",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.111.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.6"
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.0"
   }
 }

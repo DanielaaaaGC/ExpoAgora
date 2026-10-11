@@ -1,0 +1,61 @@
+[
+  {
+    "id": "sistema-politico",
+    "title": "Sistema político",
+    "topics": [
+      {
+        "id": "quiz-sistema",
+        "title": "Quiz",
+        "answers": [
+          1,
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "como-votar",
+    "title": "Cómo votar",
+    "topics": [
+      {
+        "id": "quiz-votar",
+        "title": "Quiz",
+        "answers": []
+      }
+    ]
+  },
+  {
+    "id": "funciones-tse",
+    "title": "Funciones del TSE",
+    "topics": [
+      {
+        "id": "quiz-tse",
+        "title": "Quiz",
+        "answers": []
+      }
+    ]
+  },
+  {
+    "id": "poderes-estado",
+    "title": "Poderes del Estado",
+    "topics": [
+      {
+        "id": "quiz-poderes",
+        "title": "Quiz",
+        "answers": []
+      }
+    ]
+  },
+  {
+    "id": "partidos-politicos",
+    "title": "Partidos políticos",
+    "topics": [
+      {
+        "id": "quiz-partidos",
+        "title": "Quiz",
+        "answers": []
+      }
+    ]
+  }
+]
